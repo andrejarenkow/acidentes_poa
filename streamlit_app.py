@@ -54,7 +54,8 @@ fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
                           mapbox_style = 'open-street-map',
                           color_continuous_scale = 'turbo',
                           opacity = 0.9,
-                          center=dict(lat=-30.085815797161448 , lon= -51.17306247847506), height=600, size_max=500)
+                          center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
+                          height=600)
 
 
 fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
