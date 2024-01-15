@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 px.set_mapbox_access_token(st.secrets['MAPBOX_TOKEN'])
-
+#############################################################################
 @st.cache_data(ttl='24h')
 def load_data():
     acidentes_poa = pd.read_csv('https://dadosabertos.poa.br/dataset/d6cfbe48-ee1f-450f-87f5-9426f6a09328/resource/b56f8123-716a-4893-9348-23945f1ea1b9/download/cat_acidentes.csv', sep=';')
@@ -37,21 +37,21 @@ def load_data():
     acidentes_poa['cruzamento'] = acidentes_poa['log2'].notna()
     
     return acidentes_poa
-
+#############################################################################
 acidentes_poa = load_data()
-
-
-
 
 ano = st.selectbox(
     'Selecione o ano', sorted(acidentes_poa['ano'].unique()))
 
-
-
 df = acidentes_poa.copy()
 df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']==ano)]
+#############################################################################
+col1, col2 = st.columns(2)
 
-container_filtros = st.container(border=True)
+
+#############################################################################
+with col1:
+    container_filtros = st.container(border=True)
 with container_filtros:
     checkbox_cruzamentos = st.toggle('Apenas cruzamentos', value=False)
     toggle_bicicleta = st.toggle('Apenas envolvendo bicicleta', value=False)
@@ -65,6 +65,7 @@ if checkbox_cruzamentos:
     cruzamentos = acidentes_poa['cruzamento']>0
     df = df[cruzamentos]
 
+#############################################################################
 tab_mapa_calor, tab_scatter = st.tabs(['Heatmap', 'Scattermap'])
 with tab_mapa_calor:
     fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
