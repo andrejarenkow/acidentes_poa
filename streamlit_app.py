@@ -13,6 +13,8 @@ st.set_page_config(
     initial_sidebar_state='collapsed'
 )
 
+px.set_mapbox_access_token(st.secrets['MAPBOX_TOKEN'])
+
 @st.cache_data(ttl='24h')
 def load_data():
     acidentes_poa = pd.read_csv('https://dadosabertos.poa.br/dataset/d6cfbe48-ee1f-450f-87f5-9426f6a09328/resource/b56f8123-716a-4893-9348-23945f1ea1b9/download/cat_acidentes.csv', sep=';')
