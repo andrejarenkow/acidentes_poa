@@ -14,6 +14,8 @@ st.set_page_config(
     initial_sidebar_state='collapsed'
 )
 
+st.title('Traffic accidents in Porto Alegre, Brazil')
+
 px.set_mapbox_access_token(st.secrets['MAPBOX_TOKEN'])
 #############################################################################
 @st.cache_data(ttl='24h')
