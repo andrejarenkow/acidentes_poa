@@ -46,15 +46,13 @@ ano = st.selectbox(
 df = acidentes_poa.copy()
 df = df[(df['latitude']<0)&(df['longitude']<0)&(df['ano']==ano)]
 
-fig = ff.create_hexbin_mapbox(
-    data_frame=df, lat="latitude", lon="longitude",
-    nx_hexagon=30, opacity=0.6, labels={"color": "Número de acidentes"}, zoom=10, min_count=1, color_continuous_scale="Magma_r"
+fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
+                          radius = 8,
+                          zoom = 10,
+                          mapbox_style = 'open-street-map',
+                          color_continuous_scale = 'turbo',
+                          opacity = 0.9)
 
-)
-fig.update_layout(margin=dict(b=0, t=0, l=0, r=0))
-fig.update_layout( mapbox_accesstoken= st.secrets['MAPBOX_TOKEN'],
-                   mapbox_style="open-street-map"
-                              )
 st.plotly_chart(fig)
 
 df
