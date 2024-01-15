@@ -96,7 +96,7 @@ with tab_scatter:
     scatter_fig = px.scatter_mapbox(df.sort_values('ups'), lat = 'latitude', lon = 'longitude',
                                     zoom = 9.5,
                                     mapbox_style = 'light',
-                                    color_discrete_sequence = ['forestgreen','goldenrod','indianred'],
+                                    color_discrete_sequence = ['forestgreen','khaki','darkred'],
                                     color = 'ups_string',
                                     size='ups',
                                     opacity = 0.3,
