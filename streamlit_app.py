@@ -40,7 +40,7 @@ def load_data():
 
 acidentes_poa = load_data()
 
-top10 = pd.concat([acidentes_poa['log1'], acidentes_poa['log2']]).value_counts().head(10)
+
 
 
 ano = st.selectbox(
@@ -77,9 +77,7 @@ with tab_mapa_calor:
                             height=600)
     
     
-    fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
-                                    #mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
-                                   )
+    fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)')
     st.plotly_chart(fig)
 
 with tab_scatter:
@@ -92,9 +90,9 @@ with tab_scatter:
                             height=600)
     
     
-    scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
-                                    #mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
-                                   )
+    scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)')
     st.plotly_chart(scatter_fig)
+
+top10 = pd.concat([df['log1'], df['log2']]).value_counts().head(10)
 top10
 df
