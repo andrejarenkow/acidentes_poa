@@ -41,7 +41,7 @@ top10 = pd.concat([acidentes_poa['log1'], acidentes_poa['log2']]).value_counts()
 top10
 
 ano = st.selectbox(
-    'Selecione o ano', sorted(df['ano'].unique()))
+    'Selecione o ano', sorted(acidentes_poa['ano'].unique()))
 
 df = acidentes_poa.copy()
 df = df[(df['latitude']<0)&(df['longitude']<0)&(df['ano']==ano)]
