@@ -95,10 +95,10 @@ with tab_scatter:
     scatter_fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
                             zoom = 9.5,
                             mapbox_style = 'open-street-map',
-                            color_continuous_scale = 'YlOrRd',
+                            color_continuous_scale = 'Reds',
                             color = 'ups',
                             #size='ups',
-                            opacity = 0.6,
+                            opacity = 0.3,
                             center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                             height=600)
     
