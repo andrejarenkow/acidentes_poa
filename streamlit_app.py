@@ -94,7 +94,7 @@ with tab_mapa_calor:
 with tab_scatter:
     scatter_fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
                                     zoom = 9.5,
-                                    mapbox_style = 'open-street-map',
+                                    mapbox_style = 'carto-darkmatter',
                                     color_continuous_scale = 'RdBu_r',
                                     color = 'ups',
                                     size='ups',
