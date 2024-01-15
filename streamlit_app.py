@@ -51,7 +51,10 @@ ano = st.selectbox(
 df = acidentes_poa.copy()
 df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']==ano)]
 
-checkbox_cruzamentos = st.checkbox('Apenas cruzamentos')
+container_filtros = st.container(border=True)
+with container_filtros:
+    checkbox_cruzamentos = st.checkbox('Apenas cruzamentos')
+
 
 if checkbox_cruzamentos:
     cruzamentos = acidentes_poa['cruzamento']>0
