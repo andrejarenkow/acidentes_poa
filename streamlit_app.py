@@ -56,3 +56,5 @@ fig.update_layout( mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY
                    mapbox_style="open-street-map"
                               )
 st.plotly_chart(fig)
+
+df
