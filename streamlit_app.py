@@ -33,6 +33,7 @@ def load_data():
     
     return acidentes_poa
 
-df = load_data()
+acidentes_poa = load_data()
 
-df
+top10 = pd.concat([acidentes_poa['log1'], acidentes_poa['log2']]).value_counts().head(10)
+top10
