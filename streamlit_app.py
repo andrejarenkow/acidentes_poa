@@ -40,7 +40,7 @@ def load_data():
 acidentes_poa = load_data()
 
 top10 = pd.concat([acidentes_poa['log1'], acidentes_poa['log2']]).value_counts().head(10)
-top10
+
 
 ano = st.selectbox(
     'Selecione o ano', sorted(acidentes_poa['ano'].unique()))
@@ -55,6 +55,11 @@ fig = px.density_mapbox(acidentes_poa, lat = 'latitude', lon = 'longitude',
                           color_continuous_scale = 'turbo',
                           opacity = 0.9)
 
-st.plotly_chart(fig)
 
+fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+                                  margin=go.layout.Margin(l=10, r=10, t=10, b=10),
+                                mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
+                               )
+st.plotly_chart(fig)
+top10
 df
