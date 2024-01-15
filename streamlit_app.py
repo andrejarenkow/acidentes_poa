@@ -87,7 +87,7 @@ with tab_mapa_calor:
     
     
     fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)')
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 with tab_scatter:
     scatter_fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
@@ -100,7 +100,7 @@ with tab_scatter:
     
     
     scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)')
-    st.plotly_chart(scatter_fig)
+    st.plotly_chart(scatter_fig, use_container_width=True)
 
 top10 = pd.concat([df['log1'], df['log2']]).value_counts().head(10)
 with col1:
