@@ -3,6 +3,7 @@ import streamlit as st
 import plotly.express as px
 import numpy as np
 import plotly.figure_factory as ff
+import plotly.graph_objects as go
 
 
 # Configurações da página
@@ -48,12 +49,13 @@ ano = st.selectbox(
 df = acidentes_poa.copy()
 df = df[(df['latitude']<0)&(df['longitude']<0)&(df['ano']==ano)]
 
-fig = px.density_mapbox(acidentes_poa, lat = 'latitude', lon = 'longitude',
+fig = px.scatter_mapbox(acidentes_poa, lat = 'latitude', lon = 'longitude',
                           radius = 8,
-                          zoom = 10,
+                          zoom = 0,
                           mapbox_style = 'open-street-map',
                           color_continuous_scale = 'turbo',
-                          opacity = 0.9)
+                          opacity = 0.9,
+                          center=dict(lat=-30.456877333125696, lon= -53.01906610604057), height=600, size_max=500))
 
 
 fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
