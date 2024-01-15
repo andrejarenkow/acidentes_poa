@@ -53,7 +53,7 @@ df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']
 
 container_filtros = st.container(border=True)
 with container_filtros:
-    checkbox_cruzamentos = st.checkbox('Apenas cruzamentos')
+    checkbox_cruzamentos = st.toggle('Apenas cruzamentos')
     toggle_bicicleta = st.toggle('Envolvendo bicicleta')
     
 if toggle_bicicleta:
@@ -65,19 +65,36 @@ if checkbox_cruzamentos:
     cruzamentos = acidentes_poa['cruzamento']>0
     df = df[cruzamentos]
 
-fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
-                        zoom = 9.5,
-                        mapbox_style = 'open-street-map',
-                        color_continuous_scale = 'turbo',
-                        opacity = 0.6,
-                        radius=5,
-                        center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
-                        height=600)
+tab_mapa_calor, tab_scatter = st.tabs(['Heatmap', 'Scattermap'])
+with tab_mapa_calor:
+    fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
+                            zoom = 9.5,
+                            mapbox_style = 'open-street-map',
+                            color_continuous_scale = 'turbo',
+                            opacity = 0.6,
+                            radius=5,
+                            center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
+                            height=600)
+    
+    
+    fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+                                    mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
+                                   )
+    st.plotly_chart(fig)
 
-
-fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
-                                mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
-                               )
-st.plotly_chart(fig)
+with tab_scatter:
+    scatter_fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
+                            zoom = 9.5,
+                            mapbox_style = 'open-street-map',
+                            color_continuous_scale = 'turbo',
+                            opacity = 0.6,
+                            center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
+                            height=600)
+    
+    
+    scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
+                                    mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
+                                   )
+    st.plotly_chart(scatter_fig)
 top10
 df
