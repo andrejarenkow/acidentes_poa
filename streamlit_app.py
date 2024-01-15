@@ -93,14 +93,15 @@ with tab_mapa_calor:
 
 with tab_scatter:
     scatter_fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
-                            zoom = 9.5,
-                            mapbox_style = 'open-street-map',
-                            color_continuous_scale = 'RdBu_r',
-                            color = 'ups',
-                            size='ups',
-                            opacity = 0.3,
-                            center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
-                            height=600)
+                                    zoom = 9.5,
+                                    mapbox_style = 'open-street-map',
+                                    color_continuous_scale = 'RdBu_r',
+                                    color = 'ups',
+                                    size='ups',
+                                    opacity = 0.3,
+                                    template='plotly_dark',
+                                    center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
+                                    height=600)
     
     
     scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=10, r=10, t=10, b=10),)
