@@ -5,8 +5,8 @@ import numpy as np
 
 # Configurações da página
 st.set_page_config(
-    page_title="Buscador de Soros Antiveneno no Rio Grande do Sul",
-    page_icon="	:snake:",
+    page_title="Traffic Accidents - Porto Alegre, Brazil",
+    page_icon="	:car:",
     layout="wide",
     initial_sidebar_state='collapsed'
 )
