@@ -110,7 +110,10 @@ with tab_scatter:
     st.plotly_chart(scatter_fig, use_container_width=True)
     
 
-top10 = pd.concat([df['log1'], df['log2']]).value_counts().head(10)
+top10 = pd.pivot_table(data = df, index='log1', columns='ups', aggfunc='count', values='noite_dia').fillna(0)
+top10['total'] = top10.sum(axis=1)
+top10 = top10.sort_values(13, ascending=False).head(20)
+
 with col1:
     top10
 df
