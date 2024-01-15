@@ -50,11 +50,11 @@ df = acidentes_poa.copy()
 df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']==ano)]
 
 fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
-                          zoom = 0,
+                          zoom = 10,
                           mapbox_style = 'open-street-map',
                           color_continuous_scale = 'turbo',
                           opacity = 0.9,
-                          center=dict(lat=-30.456877333125696, lon= -53.01906610604057), height=600, size_max=500)
+                          center=dict(lat=-30.085815797161448 , lon= -51.17306247847506), height=600, size_max=500)
 
 
 fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
