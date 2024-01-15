@@ -88,7 +88,7 @@ with tab_mapa_calor:
                             height=600)
     
     
-    fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)')
+    fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=10, r=10, t=10, b=10),)
     st.plotly_chart(fig, use_container_width=True)
 
 with tab_scatter:
@@ -103,7 +103,7 @@ with tab_scatter:
                             height=600)
     
     
-    scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)')
+    scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=10, r=10, t=10, b=10),)
     st.plotly_chart(scatter_fig, use_container_width=True)
 
 top10 = pd.concat([df['log1'], df['log2']]).value_counts().head(10)
