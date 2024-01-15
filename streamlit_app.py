@@ -102,7 +102,7 @@ with tab_scatter:
                                     center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                                     hover_name="log1",
                                     hover_data= ['ups', 'data', 'tipo_acid', 'dia_sem'],
-                                    title = 'Traffic Accidents by Standard Severity Unity')
+                                    title = 'Traffic Accidents by Standard Severity Unity'),
                                     height=600)
     
     
