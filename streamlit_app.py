@@ -47,7 +47,7 @@ ano = st.selectbox(
     'Selecione o ano', sorted(acidentes_poa['ano'].unique()))
 
 df = acidentes_poa.copy()
-df = df[(df['latitude']<-31)&(df['latitude']>-29)&(df['longitude']<0)&(df['ano']==ano)]
+df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']==ano)]
 
 fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
                           zoom = 0,
