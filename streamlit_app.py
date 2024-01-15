@@ -38,15 +38,21 @@ def load_data():
     
     return acidentes_poa
 #############################################################################
+
+
+col1, col2 = st.columns(2)
+
+#############################################################################
 acidentes_poa = load_data()
 
-ano = st.selectbox(
-    'Selecione o ano', sorted(acidentes_poa['ano'].unique()))
+with col1:
+    ano = st.selectbox(
+        'Selecione o ano', sorted(acidentes_poa['ano'].unique()))
 
 df = acidentes_poa.copy()
 df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']==ano)]
 #############################################################################
-col1, col2 = st.columns(2)
+
 
 
 #############################################################################
