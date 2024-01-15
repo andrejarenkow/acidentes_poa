@@ -103,5 +103,6 @@ with tab_scatter:
     st.plotly_chart(scatter_fig)
 
 top10 = pd.concat([df['log1'], df['log2']]).value_counts().head(10)
-top10
+with col1:
+    top10
 df
