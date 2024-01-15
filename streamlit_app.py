@@ -46,9 +46,13 @@ top10 = pd.concat([acidentes_poa['log1'], acidentes_poa['log2']]).value_counts()
 ano = st.selectbox(
     'Selecione o ano', sorted(acidentes_poa['ano'].unique()))
 
+
+
 df = acidentes_poa.copy()
 df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']==ano)]
 
+cruzamentos = acidentes_poa['cruzamento']>0
+df = df[cruzamentos]
 fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
                         zoom = 9.5,
                         mapbox_style = 'open-street-map',
