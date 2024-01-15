@@ -58,7 +58,7 @@ fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
                         mapbox_style = 'open-street-map',
                         color_continuous_scale = 'turbo',
                         opacity = 0.6,
-                        radius=4,
+                        radius=5,
                         center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                         height=600)
 
