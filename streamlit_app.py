@@ -92,11 +92,11 @@ with tab_mapa_calor:
     st.plotly_chart(fig, use_container_width=True)
 
 with tab_scatter:
-    scatter_fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
+    scatter_fig = px.scatter_mapbox(df.sort_values('ups'), lat = 'latitude', lon = 'longitude',
                                     zoom = 9.5,
                                     mapbox_style = 'light',
-                                    color_discrete_sequence = px.colors.qualitative.G10,
-                                    #color = 'ups',
+                                    color_discrete_sequence = ['green','yellow','red'],
+                                    color = 'ups',
                                     size='ups',
                                     opacity = 0.3,
                                     center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
