@@ -55,4 +55,4 @@ fig.update_layout(margin=dict(b=0, t=0, l=0, r=0))
 fig.update_layout( mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
                    mapbox_style="open-street-map"
                               )
-fig
+st.plotly_chart(fig)
