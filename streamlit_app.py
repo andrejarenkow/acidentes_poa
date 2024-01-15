@@ -55,7 +55,7 @@ fig = px.scatter_mapbox(acidentes_poa, lat = 'latitude', lon = 'longitude',
                           mapbox_style = 'open-street-map',
                           color_continuous_scale = 'turbo',
                           opacity = 0.9,
-                          center=dict(lat=-30.456877333125696, lon= -53.01906610604057), height=600, size_max=500))
+                          center=dict(lat=-30.456877333125696, lon= -53.01906610604057), height=600, size_max=500)
 
 
 fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
