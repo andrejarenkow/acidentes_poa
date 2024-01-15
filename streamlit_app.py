@@ -48,7 +48,7 @@ ano = st.selectbox(
 df = acidentes_poa.copy()
 df = df[(df['latitude']<0)&(df['longitude']<0)&(df['ano']==ano)]
 
-fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
+fig = px.density_mapbox(acidentes_poa, lat = 'latitude', lon = 'longitude',
                           radius = 8,
                           zoom = 10,
                           mapbox_style = 'open-street-map',
