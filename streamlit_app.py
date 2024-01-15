@@ -95,7 +95,7 @@ with tab_scatter:
     scatter_fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
                                     zoom = 9.5,
                                     mapbox_style = 'light',
-                                    color_discrete_sequence = ['green','yellow','red'],
+                                    color_discrete_sequence = px.colors.qualitative.G10,
                                     #color = 'ups',
                                     size='ups',
                                     opacity = 0.3,
