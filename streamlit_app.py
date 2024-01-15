@@ -53,8 +53,8 @@ df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']
 
 container_filtros = st.container(border=True)
 with container_filtros:
-    checkbox_cruzamentos = st.toggle('Apenas cruzamentos')
-    toggle_bicicleta = st.toggle('Apenas envolvendo bicicleta')
+    checkbox_cruzamentos = st.toggle('Apenas cruzamentos', value=False)
+    toggle_bicicleta = st.toggle('Apenas envolvendo bicicleta', value=False)
     
 if toggle_bicicleta:
     bicicleta = acidentes_poa['bicicleta']>0
