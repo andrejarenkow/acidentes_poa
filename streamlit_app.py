@@ -2,6 +2,8 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import numpy as np
+import plotly.figure_factory as ff
+
 
 # Configurações da página
 st.set_page_config(
@@ -37,3 +39,20 @@ acidentes_poa = load_data()
 
 top10 = pd.concat([acidentes_poa['log1'], acidentes_poa['log2']]).value_counts().head(10)
 top10
+
+ano = st.selectbox(
+    'Selecione o ano', sorted(df['ano'].unique()))
+
+df = acidentes_poa.copy()
+df = df[(df['latitude']<0)&(df['longitude']<0)&(df['ano']==ano)]
+
+fig = ff.create_hexbin_mapbox(
+    data_frame=df, lat="latitude", lon="longitude",
+    nx_hexagon=30, opacity=0.6, labels={"color": "Número de acidentes"}, zoom=10, min_count=1, color_continuous_scale="Magma_r"
+
+)
+fig.update_layout(margin=dict(b=0, t=0, l=0, r=0))
+fig.update_layout( mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
+                   mapbox_style="open-street-map"
+                              )
+fig
