@@ -57,7 +57,6 @@ fig = px.density_mapbox(acidentes_poa, lat = 'latitude', lon = 'longitude',
 
 
 fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)',
-                                  margin=go.layout.Margin(l=10, r=10, t=10, b=10),
                                 mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
                                )
 st.plotly_chart(fig)
