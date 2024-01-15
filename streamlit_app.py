@@ -53,6 +53,7 @@ with col1:
 
 df = acidentes_poa.copy()
 df = df[(df['latitude']>-31)&(df['latitude']<-29)&(df['longitude']<0)&(df['ano']==ano)]
+df['ups_string'] = df['ups'].astype(str)
 #############################################################################
 
 
@@ -96,7 +97,7 @@ with tab_scatter:
                                     zoom = 9.5,
                                     mapbox_style = 'light',
                                     color_discrete_sequence = ['green','yellow','red'],
-                                    color = 'ups',
+                                    color = 'ups_string',
                                     size='ups',
                                     opacity = 0.3,
                                     center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
