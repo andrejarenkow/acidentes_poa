@@ -98,7 +98,7 @@ with tab_scatter:
                                     color_continuous_scale = 'Reds',
                                     color = 'ups',
                                     size='ups',
-                                    opacity = 0.3,
+                                    opacity = 0.6,
                                     center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                                     height=600)
     
