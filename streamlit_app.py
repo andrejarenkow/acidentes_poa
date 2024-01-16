@@ -76,7 +76,7 @@ if checkbox_cruzamentos:
 
 #############################################################################
 with col2:
-    tab_mapa_calor, tab_scatter = st.tabs(['Heatmap', 'Scattermap'])
+     tab_scatter, tab_mapa_calor = st.tabs([ 'Scattermap','Heatmap'])
     
 with tab_mapa_calor:
     fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
