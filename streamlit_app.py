@@ -62,6 +62,10 @@ df['ups_string'] = df['ups'].astype(str)
 
 #############################################################################
 with col1:
+    metric1, metric2, metric3 = st.columns(3)
+    metric2.metric('Fatal Accidents' ,len(df[df['ups']==13]))
+    metric1.metric('Total Accidents', len(df))
+    metric3.metric('Total deaths', df['mortes'].sum())
     container_filtros = st.container(border=True)
 with container_filtros:
     checkbox_cruzamentos = st.toggle('Apenas cruzamentos', value=False)
@@ -78,10 +82,7 @@ if checkbox_cruzamentos:
 
 #############################################################################
 with col2:
-    metric1, metric2, metric3 = st.columns(3)
-    metric2.metric('Fatal Accidents' ,len(df[df['ups']==13]))
-    metric1.metric('Total Accidents', len(df))
-    metric3.metric('Total deaths', df['mortes'].sum())
+
     tab_scatter, tab_mapa_calor = st.tabs([ 'Scattermap','Heatmap'])
     
 with tab_mapa_calor:
