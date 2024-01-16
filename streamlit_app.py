@@ -161,7 +161,13 @@ acid_hora = px.imshow(acidentes_poa_hora, text_auto=True, aspect="auto", labels=
 st.plotly_chart(acid_hora, theme=None)
 
 #########################
-acidentes_por_mes = acidentes_poa['data'].dt.to_period('M').value_counts().reset_index()
+if toggle_bicicleta:
+    bicicleta = acidentes_poa['bicicleta']>0
+    df_graf_lin = acidentes_poa[bicicleta]
+
+else:
+    df_graf_lin = acidentes_poa
+acidentes_por_mes = df_graf_lin['data'].dt.to_period('M').value_counts().reset_index()
 acidentes_por_mes.columns=['date', 'accidents']
 acidentes_por_mes = acidentes_por_mes[acidentes_por_mes['date']<'01-01-2100'].sort_values('date')
 acidentes_por_mes['date'] = acidentes_por_mes['date'].astype(str)
