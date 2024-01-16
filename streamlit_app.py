@@ -77,8 +77,8 @@ if checkbox_cruzamentos:
 
 #############################################################################
 with col2:
-     st.metric('Acidentes grau 13' ,len(df[df['ups']==13])
-     tab_scatter, tab_mapa_calor = st.tabs([ 'Scattermap','Heatmap'])
+    st.metric('Acidentes grau 13' ,len(df[df['ups']==13]))
+    tab_scatter, tab_mapa_calor = st.tabs([ 'Scattermap','Heatmap'])
     
 with tab_mapa_calor:
     fig = px.scatter_mapbox(df.sort_values('noite_dia'), lat = 'latitude', lon = 'longitude',
