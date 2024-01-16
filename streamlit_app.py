@@ -110,7 +110,7 @@ with tab_scatter:
                                     color_discrete_sequence = ['forestgreen','gold','darkred'],
                                     color = 'ups_string',
                                     size='ups',
-                                    opacity = 0.6,
+                                    opacity = 0.8,
                                     center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                                     hover_name="log1",
                                     hover_data= ['data','horario', 'tipo_acid', 'dia_sem'],
