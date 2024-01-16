@@ -62,10 +62,7 @@ df['ups_string'] = df['ups'].astype(str)
 
 #############################################################################
 with col1:
-    metric1, metric2, metric3 = st.columns(3)
-    metric2.metric('Fatal Accidents' ,len(df[df['ups']==13]))
-    metric1.metric('Total Accidents', len(df))
-    metric3.metric('Total deaths', df['mortes'].sum()+ df['morte_post'].sum())
+
     container_filtros = st.container(border=True)
 with container_filtros:
     checkbox_cruzamentos = st.toggle('Apenas cruzamentos', value=False)
@@ -79,6 +76,12 @@ if toggle_bicicleta:
 if checkbox_cruzamentos:
     cruzamentos = acidentes_poa['cruzamento']>0
     df = df[cruzamentos]
+
+with col1:
+    metric1, metric2, metric3 = st.columns(3)
+    metric2.metric('Fatal Accidents' ,len(df[df['ups']==13]))
+    metric1.metric('Total Accidents', len(df))
+    metric3.metric('Total deaths', df['mortes'].sum()+ df['morte_post'].sum())
 
 #############################################################################
 with col2:
