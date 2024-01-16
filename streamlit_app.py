@@ -46,6 +46,7 @@ col1, col2 = st.columns([1,2])
 
 #############################################################################
 acidentes_poa = load_data()
+acidentes_poa = acidentes_poa[acidentes_poa['ano']<2100].reset_index(drop=True)
 
 with col1:
     ano = st.selectbox(
