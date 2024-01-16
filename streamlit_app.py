@@ -87,18 +87,16 @@ with col1:
 #############################################################################
 with col2:
 
-    tab_scatter, tab_mapa_calor = st.tabs([ 'Scattermap','Heatmap'])
+    tab_scatter, tab_mapa_calor = st.tabs([ 'Scattermap','Hexbin map'])
     
 with tab_mapa_calor:
     fig = ff.create_hexbin_mapbox(
         data_frame=df, lat="latitude", lon="longitude",
-        nx_hexagon=30, opacity=0.6, labels={"color": "Number of accidents"}, zoom=10, min_count=1, color_continuous_scale="Magma_r"
+        nx_hexagon=30, opacity=0.6, labels={"color": "Number of accidents"}, zoom=10, min_count=1, color_continuous_scale="Magma_r", title='Hexbin map',
     
     )
     fig.update_layout(margin=dict(b=0, t=0, l=0, r=0))
-    fig.update_layout( mapbox_accesstoken= 'pk.eyJ1IjoiYW5kcmUtamFyZW5rb3ciLCJhIjoiY2xkdzZ2eDdxMDRmMzN1bnV6MnlpNnNweSJ9.4_9fi6bcTxgy5mGaTmE4Pw',
-                       mapbox_style="open-street-map"
-                                  )   
+    fig.update_layout( mapbox_style="open-street-map")   
     
     fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=10, r=10, t=10, b=10),)
     st.plotly_chart(fig, use_container_width=True)
