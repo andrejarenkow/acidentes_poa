@@ -80,10 +80,10 @@ with col2:
      tab_scatter, tab_mapa_calor = st.tabs([ 'Scattermap','Heatmap'])
     
 with tab_mapa_calor:
-    fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
+    fig = px.scatter_mapbox(df.sort_values('noite_dia'), lat = 'latitude', lon = 'longitude',
                             zoom = 9.5,
                             mapbox_style = 'open-street-map',
-                            color_discrete_sequence = ['forestgreen','gold','darkred']
+                            color_discrete_sequence = ['gold','mediumblue'],
                             color = 'noite_dia',
                             size='auto',
                             opacity = 0.6,
