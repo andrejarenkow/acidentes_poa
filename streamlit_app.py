@@ -131,7 +131,7 @@ top10['Fatal %'] = top10['Fatal victims']/top10['Total']
 
 
 with col1:
-    top10
+    st.dataframe(top10, hide_index=True)
 df
 
 st.markdown('https://www.sinaldetransito.com.br/artigos/identificacao_de_locais_criticos_de_acidentes.pdf')
