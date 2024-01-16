@@ -130,4 +130,4 @@ df
 st.markdown('https://www.sinaldetransito.com.br/artigos/identificacao_de_locais_criticos_de_acidentes.pdf')
 st.markdown('1 - Acidente somente Danos materiais; 5 - Acidente com Feridos; 13 - Acidente com Vítimas Fatais')
 
-style_metric_cards()
+
