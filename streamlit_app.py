@@ -157,7 +157,7 @@ acidentes_poa_hora.set_index('hora', inplace=True)
 
 
 
-acid_hora = px.imshow(acidentes_poa_hora, text_auto=True, labels=dict(x="Day of Week", y="Time of Day", color="Accidents", color_continuous_scale = 'Reds'))
+acid_hora = px.imshow(acidentes_poa_hora, text_auto=True, aspect='auto', labels=dict(x="Day of Week", y="Time of Day", color="Accidents", color_continuous_scale = 'Reds'))
 
 
 #########################
