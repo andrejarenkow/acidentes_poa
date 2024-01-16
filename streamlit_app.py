@@ -161,10 +161,11 @@ acid_hora = px.imshow(acidentes_poa_hora, text_auto=True, aspect="auto", labels=
 st.plotly_chart(acid_hora, theme=None)
 
 #########################
-acidentes_por_mes = df['data'].dt.to_period('M').value_counts().reset_index()
+acidentes_por_mes = acidentes_poa['data'].dt.to_period('M').value_counts().reset_index()
 acidentes_por_mes.columns=['date', 'accidents']
+acidentes_por_mes = acidentes_por_mes[acidentes_por_mes['date']<'01-01-2100'].sort_values('date')
 acidentes_por_mes['date'] = acidentes_por_mes['date'].astype(str)
-acid_mes = px.line(acidentes_por_mes.sort_values('date'), x='date', y='accidents')
+acid_mes = px.line(acidentes_por_mes, x='date', y='accidents')
 st.plotly_chart(acid_mes)
 ##########################
 
