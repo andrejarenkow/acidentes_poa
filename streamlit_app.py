@@ -109,7 +109,7 @@ with tab_scatter:
                                     height=600)
     
     
-    scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=10, r=10, t=20, b=10),)
+    scatter_fig.update_layout(template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', margin=go.layout.Margin(l=10, r=30, t=30, b=10),)
     st.plotly_chart(scatter_fig, use_container_width=True)
     
 
