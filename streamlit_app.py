@@ -124,8 +124,11 @@ with tab_scatter:
     
 
 top10 = pd.pivot_table(data = df, index='log1', columns='ups', aggfunc='count', values='noite_dia').fillna(0)
-top10['total'] = top10.sum(axis=1)
-top10 = top10.sort_values('total', ascending=False).head(50)
+top10.columns = ['Only material damage','Injured people', 'Fatal victims']
+top10['Total'] = top10.sum(axis=1)
+top10 = top10.reset_index()
+top10['Fatal %'] = top10['Fatal victims']/top10['Total']
+
 
 with col1:
     top10
