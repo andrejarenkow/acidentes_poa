@@ -83,6 +83,7 @@ with tab_mapa_calor:
                             zoom = 9.5,
                             mapbox_style = 'open-street-map',
                             color_continuous_scale = 'turbo',
+                            z='ups',
                             opacity = 0.6,
                             radius=5,
                             center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
@@ -102,7 +103,7 @@ with tab_scatter:
                                     opacity = 0.6,
                                     center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                                     hover_name="log1",
-                                    hover_data= ['ups', 'data','horario', 'tipo_acid', 'dia_sem'],
+                                    hover_data= ['data','horario', 'tipo_acid', 'dia_sem'],
                                     title = 'Traffic Accidents by Standard Severity Unity',
                                     height=600)
     
