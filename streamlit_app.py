@@ -124,13 +124,13 @@ with tab_scatter:
     
 
 top10 = pd.pivot_table(data = df, index='log1', columns='ups', aggfunc='count', values='noite_dia').fillna(0)
-top10.columns = ['Material damage','Injured people', 'Fatal victims']
+top10.columns = ['Light','Medium', 'Severe']
 top10['Total'] = top10.sum(axis=1)
-top10['Fatal %'] = top10['Fatal victims']/top10['Total']*100
+top10['Fatal %'] = top10['Severe']/top10['Total']*100
 
 
 with col1:
-    st.dataframe(top10)
+    st.dataframe(top10.sort_values('Severe', ascending=False))
 df
 
 st.markdown('https://www.sinaldetransito.com.br/artigos/identificacao_de_locais_criticos_de_acidentes.pdf')
