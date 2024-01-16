@@ -84,7 +84,7 @@ with tab_mapa_calor:
                             zoom = 9.5,
                             mapbox_style = 'open-street-map',
                             color_continuous_scale = 'turbo',
-                            size='ups',
+                            size='auto',
                             opacity = 0.6,
                             center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                             height=600)
