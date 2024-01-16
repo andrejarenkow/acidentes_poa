@@ -105,6 +105,7 @@ with tab_scatter:
                                     hover_name="log1",
                                     hover_data= ['data','horario', 'tipo_acid', 'dia_sem'],
                                     title = 'Traffic Accidents by Standard Severity Unity',
+                                    labels={'ups_string':'severidade'},
                                     height=600)
     
     
