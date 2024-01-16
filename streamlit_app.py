@@ -80,11 +80,11 @@ with col2:
      tab_scatter, tab_mapa_calor = st.tabs([ 'Scattermap','Heatmap'])
     
 with tab_mapa_calor:
-    fig = px.density_mapbox(df, lat = 'latitude', lon = 'longitude',
+    fig = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude',
                             zoom = 9.5,
                             mapbox_style = 'open-street-map',
                             color_continuous_scale = 'turbo',
-                            #z='ups',
+                            size='ups',
                             opacity = 0.6,
                             radius=5,
                             center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
@@ -100,7 +100,7 @@ with tab_scatter:
                                     mapbox_style = 'light',
                                     color_discrete_sequence = ['forestgreen','gold','darkred'],
                                     color = 'ups_string',
-                                    size='ups',
+                                    size='auto',
                                     opacity = 0.6,
                                     center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                                     hover_name="log1",
