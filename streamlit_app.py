@@ -171,7 +171,7 @@ acidentes_por_mes = df_graf_lin['data'].dt.to_period('M').value_counts().reset_i
 acidentes_por_mes.columns=['date', 'accidents']
 acidentes_por_mes = acidentes_por_mes[acidentes_por_mes['date']<'01-01-2100'].sort_values('date')
 acidentes_por_mes['date'] = acidentes_por_mes['date'].astype(str)
-acid_mes = px.line(acidentes_por_mes, x='date', y='accidents')
+acid_mes = px.line(acidentes_por_mes, x='date', y='accidents', title='Accidents per month')
 
 ##########################
 
