@@ -156,8 +156,8 @@ acidentes_poa_hora.set_index('hora', inplace=True)
 
 
 
-acid_hora = px.imshow(acidentes_poa_hora, text_auto=True, aspect="auto", labels=dict(x="Day of Week", y="Time of Day", color="Productivity"))
-st.plotly_chart(acid_hora)
+acid_hora = px.imshow(acidentes_poa_hora, text_auto=True, aspect="auto", labels=dict(x="Day of Week", y="Time of Day", color="Accidents"))
+st.plotly_chart(acid_hora, theme=None)
 
 #########################
 
