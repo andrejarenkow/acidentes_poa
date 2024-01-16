@@ -132,7 +132,38 @@ top10 = top10.rename_axis('Street name')
 
 with col1:
     st.dataframe(top10.sort_values('Severe', ascending=False))
+
+#########################
+#acidentes por hora do dia
+acidentes_poa_hora = pd.pivot_table(df, index=['hora'],aggfunc='count', columns=['dia_sem'], values=['tipo_acid']).reset_index()
+acidentes_poa_hora.columns = acidentes_poa_hora.columns.droplevel()
+acidentes_poa_hora = acidentes_poa_hora[['', 'DOMINGO','SEGUNDA-FEIRA', 'TERÇA-FEIRA', 'QUARTA-FEIRA',
+                                         'QUINTA-FEIRA', 'SEXTA-FEIRA', 'SÁBADO']]
+
+acidentes_poa_hora.columns = ['hora', 'Sunday','Monday', 'Tuesday', 'Wednesday',
+                                         'Thursday', 'Friday', 'Saturday']
+
+
+acidentes_poa_hora['hora'] = acidentes_poa_hora['hora'].map('{:,.0f}'.format)
+
+hora = []
+
+for i in acidentes_poa_hora['hora']:
+  hora.append(str(i) + ':00')
+acidentes_poa_hora['hora'] = hora
+
+acidentes_poa_hora.set_index('hora', inplace=True)
+
+
+
+acid_hora = px.imshow(acidentes_poa_hora, text_auto=True, aspect="auto", labels=dict(x="Day of Week", y="Time of Day", color="Productivity"))
+st.plotly_chart(acid_hora)
+
+#########################
+
 df
+
+
 
 st.markdown('https://www.sinaldetransito.com.br/artigos/identificacao_de_locais_criticos_de_acidentes.pdf')
 st.markdown('1 - Acidente somente Danos materiais; 5 - Acidente com Feridos; 13 - Acidente com Vítimas Fatais')
