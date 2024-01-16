@@ -127,6 +127,7 @@ top10 = pd.pivot_table(data = df, index='log1', columns='ups', aggfunc='count', 
 top10.columns = ['Light','Medium', 'Severe']
 top10['Total'] = top10.sum(axis=1)
 top10['Fatal %'] = top10['Severe']/top10['Total']*100
+top10 = top10.rename_axis('Street name')
 
 
 with col1:
