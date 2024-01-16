@@ -86,7 +86,6 @@ with tab_mapa_calor:
                             color_continuous_scale = 'turbo',
                             size='ups',
                             opacity = 0.6,
-                            radius=5,
                             center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                             height=600)
     
