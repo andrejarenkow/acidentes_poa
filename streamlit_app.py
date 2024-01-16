@@ -85,7 +85,7 @@ with tab_mapa_calor:
                             mapbox_style = 'open-street-map',
                             color_discrete_sequence = ['gold','mediumblue'],
                             color = 'noite_dia',
-                            size='auto',
+                            size='ups',
                             opacity = 0.6,
                             center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                             height=600)
@@ -100,7 +100,7 @@ with tab_scatter:
                                     mapbox_style = 'light',
                                     color_discrete_sequence = ['forestgreen','gold','darkred'],
                                     color = 'ups_string',
-                                    size='auto',
+                                    size='ups',
                                     opacity = 0.6,
                                     center=dict(lat=-30.085815797161448 , lon= -51.17306247847506),
                                     hover_name="log1",
