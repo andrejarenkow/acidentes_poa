@@ -44,7 +44,7 @@ def load_data():
 #############################################################################
 
 
-col1, col2 = st.columns([1,2])
+col1, col2 = st.columns([1,2,2])
 
 #############################################################################
 acidentes_poa = load_data()
@@ -158,7 +158,7 @@ acidentes_poa_hora.set_index('hora', inplace=True)
 
 
 acid_hora = px.imshow(acidentes_poa_hora, text_auto=True, aspect="auto", labels=dict(x="Day of Week", y="Time of Day", color="Accidents", color_continuous_scale = 'Reds'))
-st.plotly_chart(acid_hora, theme=None)
+
 
 #########################
 if toggle_bicicleta:
@@ -172,9 +172,12 @@ acidentes_por_mes.columns=['date', 'accidents']
 acidentes_por_mes = acidentes_por_mes[acidentes_por_mes['date']<'01-01-2100'].sort_values('date')
 acidentes_por_mes['date'] = acidentes_por_mes['date'].astype(str)
 acid_mes = px.line(acidentes_por_mes, x='date', y='accidents')
-st.plotly_chart(acid_mes)
+
 ##########################
 
+with col3:
+    st.plotly_chart(acid_mes)
+    st.plotly_chart(acid_hora, theme=None)
 
 df
 
