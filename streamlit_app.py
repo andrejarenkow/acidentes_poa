@@ -4,6 +4,7 @@ import plotly.express as px
 import numpy as np
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
+from streamlit_extras.metric_cards import style_metric_cards
 
 
 # Configurações da página
